@@ -1,0 +1,126 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 13, 2020
+
+
+Chapter 2:
+1. What is the difference between Visual Studio and Visual Studio Code?
+Visual Studio is the
+traditional development environment for .NET applications, 
+and it offers an enormous range of tools and features for developing all
+sorts of applications. But it can be resource-hungry and slow, ]
+and some of the features are so determined to be helpful they get in the
+way of development.
+Visual Studio Code is a light-weight alternative that doesn’t have the bells 
+and whistles of Visual Studio but is perfectly capable
+of handling ASP.NET Core development.
+
+
+
+2. What is LocalDB?
+This is the database component that I will be using to store data in later chapters.
+
+
+
+3. What do these commands do?
+dotnet new globaljson --sdk-version 3.1.101 --output FirstProject
+dotnet new mvc --no-https --output FirstProject --framework netcoreapp3.1
+
+The first command creates a folder named FirstProject and adds to it a file named global.json, 
+which specifies the version
+of .NET Core that the project will use; this ensures you get the expected results when following the examples. 
+The second command
+creates a new ASP.NET Core project. The .NET Core SDK includes a range of templates for starting new projects, 
+and the mvc
+template is one of the options available for ASP.NET Core applications. This project template creates a project 
+that is configured for
+the MVC Framework, which is one of the application types supported by ASP.NET Core. Don’t be intimidated by the 
+idea of choosing
+a framework, and don’t worry if you have not heard of MVC—by the end of the book, you will understand the 
+features that each
+offers and how they fit together
+
+
+
+4. What command do you use to build an ASP.NET project from the command line? What command
+do you use to run the project?
+
+You can also start the application from the command line. Open a new PowerShell command prompt from the Windows Start
+menu; navigate to the FirstProject project folder, which is the folder that contains the FirstProject.csproj file; 
+and run the
+command shown in Listing
+
+dotnet run
+
+5. What is the purpose of an endpoint?
+
+In an ASP.NET Core application, incoming requests are handled by endpoints. 
+The endpoint that produced the response in Figure 2-17
+is an action, which is a method that is written in C#.
+
+
+
+6. What is a controller?
+An action is defined in a controller, which is a C# class that is derived from the
+Microsoft.AspNetCore.Mvc.Controller class, the built-in controller base class.
+
+
+
+
+7. Where are actions dened?
+The project template added a controller to the Controllers folder to help jump-start development. 
+The controller is defined
+in the class file named HomeController.cs. Controller classes contain a name followed by the word Controller,
+ which means that
+when you see a file called HomeController.cs, you know that it contains a controller called Home, which is the 
+default controller that
+is used in ASP.NET Core applications.
+
+
+
+
+8. What is the purpose of the routing system?
+The ASP.NET Core routing system is responsible for selecting the endpoint that will handle an HTTP request. A route is a rule that is
+used to decide how a request is handled. When the project was created, a default rule was created to get started
+
+
+
+
+
+9. Assume that your ASP.NET application runs in a browser with a URL like http://localhost:5000.
+List the three default routes congured by the ASP.NET Core routing system.
+• /
+• /Home
+• /Home/Index
+
+
+
+
+
+10. What does the ViewResult object instruct ASP.NET Core to do?
+When I return a ViewResult object from an action method, I am instructing ASP.NET Core to render a view. I create the
+ViewResult by calling the View method, specifying the name of the view that I want to use, which is MyView. If you run the
+application, you can see ASP.NET Core trying to find the view, as shown by the error message displayed in Figure 2-19.
+
+
+
+
+
+11. How does ASP.NET Core know what View is to be called from an action method?
+reads for teh same name of the method	
+
+
+
+
+12. What is the job of an action method?
+calls the view
+
+
+
+
+
+13. What is a view model?
+The view model in this example is a string, and it is provided to the view as the second argument to the View method.
+
+
+

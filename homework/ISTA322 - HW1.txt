@@ -22,34 +22,66 @@ receiving HTTP Responses
 
 
 3. What is middleware? See pages 255-256 in the book.
-Middleware is software which lies between an operating system and the applications running on it. Essentially functioning as hidden translation layer, middleware enables communication and data management for distributed applications. It is sometimes called plumbing, as it connects two applications together so data and databases can be easily passed between the “pipe.” Using middleware allows users to perform such requests as submitting forms on a web browser or allowing the web server to return dynamic web pages based on a user’s profile.
+Middleware is software which lies between an operating system and the applications running on it. 
+Essentially functioning as hidden translation layer, middleware enables communication and data 
+management for distributed applications. It is sometimes called plumbing, as it connects two 
+applications together so data and databases can be easily passed between the “pipe.” 
+Using middleware allows users to perform such requests as submitting forms on a web browser 
+or allowing the web server to return dynamic web pages based on a user’s profile.
 
-Common middleware examples include database middleware, application server middleware, message-oriented middleware, web middleware and transaction-processing monitors. Each programme typically provides messaging services so that different applications can communicate using messaging frameworks like simple object access protocol (SOAP), web services, representational state transfer (REST) and JavaScript object notation (JSON). While all middleware performs communication functions, the type a company chooses to use will depend on what service is being used and what type of information needs to be communicated. This can include security authentication, transaction management, message queues, applications servers, web servers and directories. Middleware can also be used for distributed processing with actions occurring in real time rather than sending data back and forth.
+Common middleware examples include database middleware, application server middleware, 
+message-oriented middleware, web middleware and transaction-processing monitors. 
+Each programme typically provides messaging services so that different applications 
+can communicate using messaging frameworks like simple object access protocol (SOAP), 
+web services, representational state transfer (REST) and JavaScript object notation (JSON). 
+While all middleware performs communication functions, the type a company chooses to use will 
+depend on what service is being used and what type of information needs to be communicated. 
+This can include security authentication, transaction management, message queues, applications 
+servers, web servers and directories. Middleware can also be used for distributed processing 
+with actions occurring in real time rather than sending data back and forth.
 
 
 
 4. What is URL routing? See pages 282-283 in the book.
-URL routing allows you to configure an application to accept request URLs that do not map to physical files. ... You use routing to define URLs that are semantically meaningful to users and that can help with search-engine optimization (SEO). By default, the Web Forms template includes ASP.NET Friendly URLs.
+URL routing allows you to configure an application to accept request URLs that do not map to 
+physical files. ... You use routing to define URLs that are semantically meaningful to users 
+and that can help with search-engine optimization (SEO). By default, the Web Forms template 
+includes ASP.NET Friendly URLs.
 
 
 
 5. What is dependency injection? See pages 255-257 in the book.
- a technique in which an object receives other objects that it depends on. These other objects are called dependencies. In the typical "using" relationship[1] the receiving object is called a client and the passed (that is, "injected") object is called a service. The code that passes the service to the client can be many kinds of things and is called the injector. Instead of the client specifying which service it will use, the injector tells the client what service to use. The "injection" refers to the passing of a dependency (a service) into the object (a client) that would use it.
+ a technique in which an object receives other objects that it depends on. 
+ These other objects are called dependencies. In the typical "using" relationship[1] 
+ the receiving object is called a client and the passed (that is, "injected") object is 
+ called a service. The code that passes the service to the client can be many kinds of things 
+ and is called the injector. Instead of the client specifying which service it will use, 
+ the injector tells the client what service to use. The "injection" refers to the passing 
+ of a dependency (a service) into the object (a client) that would use it.
 
 
 
 6. What is model binding? See pages 703-706 in the book.
-Model binding is a mechanism ASP.NET MVC uses to create parameter objects defined in controller action methods. The parameters can be of any type, from simple to complex ones. It simplifies working with data sent by the browser because data is automatically assigned to the specified model.
+Model binding is a mechanism ASP.NET MVC uses to create parameter objects defined in controller 
+action methods. The parameters can be of any type, from simple to complex ones. 
+It simplifies working with data sent by the browser because data is automatically 
+assigned to the specified model.
 
 
 
 7. What are Razor pages?
-ASP.NET Core Razor Pages is a page-focused framework for building dynamic, data-driven web sites with clean separation of concerns. Based on the latest version of ASP.NET from Microsoft - ASP.NET Core, Razor Pages supports cross platform development and can be deployed to Windows, Unix and Mac operating systems.
+ASP.NET Core Razor Pages is a page-focused framework for building dynamic, 
+data-driven web sites with clean separation of concerns. Based on the latest 
+version of ASP.NET from Microsoft - ASP.NET Core, Razor Pages supports cross 
+platform development and can be deployed to Windows, Unix and Mac operating systems.
 
 
 
 8. What is Entiity Framework Core?
-Entity Framework is an Object/Relational Mapping (O/RM) framework. It is an enhancement to ADO.NET that gives developers an automated mechanism for accessing & storing the data in the database. EF Core is intended to be used with . NET Core applications. However, it can also be used with standard .
+Entity Framework is an Object/Relational Mapping (O/RM) framework. 
+It is an enhancement to ADO.NET that gives developers an automated mechanism 
+for accessing & storing the data in the database. EF Core is intended to be used with . NET Core 
+applications. However, it can also be used with standard .
 
 
 
@@ -58,15 +90,24 @@ ASP.NET Core Identity:
 
 Is an API that supports user interface (UI) login functionality.
 Manages users, passwords, profile data, roles, claims, tokens, email confirmation, and more.
-Users can create an account with the login information stored in Identity or they can use an external login provider. Supported external login providers include Facebook, Google, Microsoft Account, and Twitter.
+Users can create an account with the login information stored in Identity or 
+they can use an external login provider. Supported external login providers include 
+Facebook, Google, Microsoft Account, and Twitter.
 
 
 10. What is the ASP.NET Core platform?
-ASP.NET Core is a free and open-source web framework and successor to ASP.NET,[3] developed by Microsoft and the community.[4] It is a modular framework that runs on both the full .NET Framework, on Windows, and the cross-platform .NET Core. However ASP.NET Core version 3 works only on .NET Core dropping support of .NET Framework.[5]
+ASP.NET Core is a free and open-source web framework and successor to ASP.NET,[3] 
+developed by Microsoft and the community.[4] It is a modular framework that runs 
+on both the full .NET Framework, on Windows, and the cross-platform .NET Core. 
+However ASP.NET Core version 3 works only on .NET Core dropping support of .NET Framework.[5]
 
-The framework is a complete rewrite that unites the previously separate ASP.NET MVC and ASP.NET Web API into a single programming model.
+The framework is a complete rewrite that unites the previously separate 
+ASP.NET MVC and ASP.NET Web API into a single programming model.
 
-Despite being a new framework, built on a new web stack, it does have a high degree of concept compatibility with ASP.NET. ASP.NET Core applications supports side by side versioning in which different applications, running on the same machine, can target different versions of ASP.NET Core. This is not possible with previous versions of ASP.NET.
+Despite being a new framework, built on a new web stack, it does have a 
+high degree of concept compatibility with ASP.NET. ASP.NET Core applications 
+supports side by side versioning in which different applications, running on the same machine, 
+can target different versions of ASP.NET Core. This is not possible with previous versions of ASP.NET.
 
 
 

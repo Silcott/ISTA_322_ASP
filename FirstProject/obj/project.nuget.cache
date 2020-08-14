@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YLjMYlvkncebk2NspenMIAanbeihbkumhINwLxXX8y2sRYmwUi1KDcGoZ+4qrt6E/0zds+N3UQTmQ1KdPoiwXg==",
+  "success": true,
+  "projectFilePath": "C:\\Github\\repo\\ISTA_322_ASP\\FirstProject\\FirstProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\silco\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512",
+    "C:\\Users\\silco\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.2\\microsoft.netcore.app.host.win-x64.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
