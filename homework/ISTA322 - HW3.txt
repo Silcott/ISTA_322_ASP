@@ -1,0 +1,111 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 16, 2020
+
+
+Chapter 3:
+1. What is the most important part of an ASP.NET Core 3 application?
+
+The data model is the most important part of any ASP.NET Core application. The model is the representation of the real-world
+objects, processes, and rules that define the subject, known as the domain, of the application. The model, often referred to as a
+domain model, contains the C# objects (known as domain objects) that make up the universe of the application and the methods
+that manipulate them. In most projects, the job of the ASP.NET Core application is to provide the user with access to the data model
+and the features that allow the user to interact with it.
+
+
+2. What is the domain model?
+
+The model, often referred to as a
+domain model, contains the C# objects (known as domain objects) that make up the universe of the application and the methods
+that manipulate them. In most projects, the job of the ASP.NET Core application is to provide the user with access to the data model
+and the features that allow the user to interact with it.
+
+
+3. Where are the model classes in an ASP.NET Core 3 application placed?
+folder named Models,
+
+
+
+4. How many action methods can a controller class dene?
+
+single controller class can define multiple action methods, and the convention is to group related actions together in the
+same controller. Listing 3-5 adds a new action method to the Home controller
+
+
+5. What is a tag helper?
+
+The addition to the listing is an a element that has an asp-action attribute. The attribute is an example of a tag helper attribute,
+which is an instruction for Razor that will be performed when the view is rendered. The asp-action attribute is an instruction to add
+an href attribute to the a element that contains a URL for an action method. I explain how tag helpers work in Chapters 25–27, but
+this tag helper tells Razor to insert a URL for an action method defined by the same controller for which the current view is being
+rendered. You can see the link that the helper creates by running the project, as shown in Figure 3-3.
+
+
+6. What does the asp-action attribute do?
+The asp-action attribute is an instruction to add
+an href attribute to the a element that contains a URL for an action method.
+
+
+
+7. What is the dierence between HTTP GET and HTTP POST? This is an important question, and you
+should understand the dierence.
+
+A GET request is what a browser issues normally each time
+someone clicks a link
+
+POST responsible for receiving
+submitted data and deciding what to do with it.
+
+8. What is model binding?
+a useful ASP.NET Core feature whereby incoming data is parsed and the key/value pairs in the
+HTTP request are used to populate properties of domain model types.
+
+Model binding is a powerful and customizable feature that eliminates the grind of dealing with HTTP requests directly and
+lets you work with C# objects rather than dealing with individual data values sent by the browser. The GuestResponse object that is
+passed as the parameter to the action method is automatically populated with the data from the form fields. I dive into the details of
+model binding in Chapter 28.
+To demonstrate how model binding works, I need to do some preparatory work. One of the application goals is to present a
+summary page with details of who is attending the party, which means that I need to keep track of the responses that I receive. I am
+going to do this by creating an in-memory collection of objects. This isn’t useful in a real application because the response data will
+be lost when the application is stopped or restarted, but this approach will allow me to keep the focus on ASP.NET Core and create
+an application that can easily be reset to its initial state. Later chapters will demonstrate persistent data storage.
+Add a class file named Repository.cs to the Models folder and use it to define the class shown in Listing
+
+9. Why should we validate user data? How do we validate user data?
+Without validation, users could enter nonsense data or even submit an empty
+form
+
+by applying attributes to model classes
+
+10. What, specically, is the ModelState.IsValid property?
+
+The Controller base class provides a property called ModelState that provides details of the outcome of the model binding
+process. If the ModelState.IsValid property returns true, then I know that the model binder has been able to satisfy the validation
+constraints I specified through the attributes on the GuestResponse class. When this happens, I render the Thanks view, just as I did
+previously.
+
+If the ModelState.IsValid property returns false, then I know that there are validation errors. The object returned by the
+ModelState property provides details of each problem that has been encountered, but I don’t need to get into that level of detail
+because I can rely on a useful feature that automates the process of asking the user to address any problems by calling the View
+method without any parameters.
+
+11. What does the asp-validation-summary do?
+
+The asp-validation-summary attribute is applied to a div element, and it displays a list of validation errors when the view
+is rendered. The value for the asp-validation-summary attribute is a value from an enumeration called ValidationSummary,
+which specifies what types of validation errors the summary will contain. I specified All, which is a good starting point for most
+applications, and I describe the other values and explain how they work in Chapter 29
+
+12. Static content consists of content such as images, script les, style les, etc. In an ASP.NET Core
+application, what is the name of the folder that cotains static content?
+
+wwroot folder and
+organized by content type so that CSS stylesheets go into the wwwroot/css folder, JavaScript files go into the wwwroot/js folder, and
+so on.
+
+
+
+13. What is Bootstrap? Who developed Bootstrap? Is Bootstrap a proprietary package? If not, what is
+it?
+which is a good CSS framework originally developed by Twitter that has become a major open source project and a
+mainstay of web application development
