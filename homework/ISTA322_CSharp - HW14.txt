@@ -1,0 +1,114 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 18, 2020
+
+
+Chapter  14, pages 305 – 328
+1. What is the difference between a managed resource and an unmanaged resource?
+Indirect unmanaged resources are reasonably common. Examples include fi le
+streams, network connections, database connections, and other resources managed by
+Windows. If you open a fi le in a method, for example, you might want to add a destruc-
+tor that closes the fi le when the object is destroyed.
+
+
+
+
+2. When is memory for an object (reference type) allocated? When is the memory deallocated?
+ref are from the heap
+
+
+The CLR must return the memory previously belonging to the object back to the heap; the
+memory that the object lived in must be deallocated.
+
+
+
+3. What is a destructor?
+
+You can use a destructor to perform any tidying up that’s required when an object is garbage col-
+lected. The CLR will automatically clear up any managed resources that an object uses, so in many of
+these cases, writing a destructor is unnecessary.
+
+
+
+
+4. What is the difference in syntax between a constructor and a destructor?
+
+The syntax for writing a destructor is a tilde (~) followed by the name of the class.
+
+A destructor is a special method, a little like a constructor, except that the CLR calls it after the
+reference to an object has disappeared
+struct MyStruct
+{
+~MyStruct() { ... } // compile-time error
+}
+
+
+
+5. Give some examples of scarce resources. Why would you want to manage scarce resources?
+
+Scarce resources such as memory, database connections, or fi le handles need to be released, and they need to be released as soon as possible. In these situations, your only option is to release the resource
+yourself. You can achieve this by creating a disposal method—a method that explicitly disposes of a
+resource. If a class has a disposal method, you can call it and control when the resource is released.
+
+
+
+6. What is exception-safe disposal?
+
+One way to ensure that a disposal method (such as Close) is always called, regardless of whether there is
+an exception, is to call the disposal method within a fi nally block. Here’s the preceding example coded
+by using this technique:
+TextReader reader = new StreamReader(filename);
+try
+{
+string line;
+while ((line = reader.ReadLine()) != null)
+{
+Console.WriteLine(line);
+}
+}
+finally
+{
+reader.Close();
+}
+
+
+
+7. How do you think that the using statement works for resource management? Give an informal, English
+language, explanation of how it works.
+The using statement provides a clean mechanism for controlling the lifetimes of resources. You can
+create an object, and this object will be destroyed when the using statement block fi nishes.
+
+ensure that the object is disposed as soon as it goes out of scope, and it doesn't require explicit code to ensure that this happens
+
+
+
+8. What ill effects could result from attempting to dispose of a resource more than once?
+can run anytime after the last reference to an object has disappeared. So it is possible that the fi nalizer might actually be invoked by the garbage
+collector on its own thread while the Dispose method is being run, especially if the Dispose
+method has to do a signifi cant amount of work. You could reduce the possibility of resources
+being released multiple times by moving the statement that sets the disposed fi eld to true closer to the start of the Dispose method, but in this case you run the risk of not freeing the
+resources at all if an exception occurs after
+
+
+
+
+9. We will look at threads later in the term. For now, what is your understanding of how threads interact
+with resource management? A good guess is a siufficient answer to this question.
+
+
+
+
+
+
+10. Why does the book recommend not attempting to force the garbage collector? Are their any exceptions
+to this recommendation?
+
+
+
+
+
+
+
+
+
+

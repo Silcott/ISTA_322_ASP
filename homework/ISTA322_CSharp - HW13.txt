@@ -1,0 +1,110 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 16, 2020
+
+
+Chapter 13:
+1. What is an interface as the term is used on object-oriented programmoing?
+Using interfaces, you can truly separate the “what“ from the “how.” An interface gives you only the
+name, return type, and parameters of the method. Exactly how the method is implemented is not a
+concern of the interface. The interface describes the functionality that a class should provide but not
+how this functionality is implemented.
+
+
+2. How do you define an interface?
+Defining an interface is syntactically similar to defi ning a class, except that you use the interface
+keyword instead of the class keyword. Within the interface, you declare methods exactly as in a class
+or structure, except that you never specify an access modifi er (public, private, or protected)
+
+
+3. Can an interface have variables, fields, or properties?
+An interface cannot contain any data; you cannot add fi elds (not even private ones) to an interface.
+
+
+
+4. How do you define a method in an interface?
+interface ILandBound
+{
+int NumberOfLegs();
+}
+
+
+
+5. Can you instantiate an object through an interface? Why or why not? YES
+In the same way that you can reference an object by using a variable defi ned as a class that is higher up the hierarchy, 
+you can reference an object by using a variable defi ned as an interface that the
+object’s class implements. Taking the preceding example, you can reference a Horse object by using an
+ILandBound variable, as follows:
+Horse myHorse = new Horse(...);
+ILandBound iMyHorse = myHorse; // legal
+
+
+
+6. Using the new keyword, can you declare a reference to an interface?
+In the same way that you can reference an object by using a variable defi ned as a class that is higher up the hierarchy, 
+you can reference an object by using a variable defi ned as an interface that the
+object’s class implements. Taking the preceding example, you can reference a Horse object by using an
+ILandBound variable, as follows:
+Horse myHorse = new Horse(...);
+ILandBound iMyHorse = myHorse; // legal
+
+
+
+7. Can an object inherit from multiple interfaces? Can a class implement multiple interfaces? If so, how
+can it do so?
+Note that when referencing an object through an interface, you can invoke only methods that are
+visible through the interface.
+A class can have at most one base class, but it is allowed to implement an unlimited number of
+interfaces. A class must implement all the methods declared by these interfaces.
+
+
+
+8. What does it mean to explicitely implement an interface?
+C# does not distinguish
+which interface the method is implementing, so the same method actually implements both interfaces.
+To solve this problem and disambiguate which method is part of which interface implementation,
+you can implement interfaces explicitly.
+So, how do you access these methods? The answer is that you reference the Horse object through
+the appropriate interface,
+
+
+9. What are the restrictions on interfaces?
+You’re not allowed to defi ne any fi elds in an interface, not even static fi elds. A fi eld is an
+implementation detail of a class or structure.
+■ You’re not allowed to defi ne any constructors in an interface. A constructor is also considered to
+be an implementation detail of a class or structure.
+■ You’re not allowed to defi ne a destructor in an interface. A destructor contains the statements
+used to destroy an object instance. (Destructors are described in Chapter 14, “Using garbage
+collection and resource management.”)
+You cannot specify an access modifi er for any method. All methods in an interface are implicitly public.
+■ You cannot nest any types (such as enumerations, structures, classes, or interfaces) inside an
+interface.
+■ An interface is not allowed to inherit from a structure or a class, although an interface can
+inherit from another interface. Structures and classes contain implementation; if an interface
+were allowed to inherit from either, it would be inheriting some implementation.
+
+10. What is the difference between an abstract class and an interface?
+The short answer: An abstract class allows you to create functionality that subclasses can implement or override. 
+An interface only allows you to define functionality, not implement it. And whereas a class can extend only one abstract class, 
+it can take advantage of multiple interfaces.
+
+
+
+11. What is an abstract method?
+Abstraction in C# is the process to hide the internal details and showing only the functionality. 
+The abstract modifier indicates the incomplete implementation. The keyword abstract is used before the class 
+or method to declare the class or method as abstract
+
+
+
+12. What is an sealed class?
+Sealed classes are used to restrict the users from inheriting the class. 
+A class can be sealed by using the sealed keyword. The keyword tells the compiler that the class is sealed, 
+and therefore, cannot be extended.
+
+
+
+13. What is an sealed method?
+ sealed class is a class which cannot be a base class of another more derived class. 
+ A sealed method in an unsealed class is a method which cannot be overridden in a derived class of this class. ... 
+ They are useful because they enable derived classes to change behaviour of the base class.
