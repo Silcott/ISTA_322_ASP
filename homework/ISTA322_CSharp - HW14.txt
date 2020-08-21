@@ -1,114 +1,114 @@
 -- Name: James Silcott
 -- Homework: ISTA322-Silcott
--- Date: August 18, 2020
+-- Date: August 21, 2020
 
 
-Chapter  14, pages 305 – 328
-1. What is the difference between a managed resource and an unmanaged resource?
-Indirect unmanaged resources are reasonably common. Examples include fi le
-streams, network connections, database connections, and other resources managed by
-Windows. If you open a fi le in a method, for example, you might want to add a destruc-
-tor that closes the fi le when the object is destroyed.
+Chapter  15, pages 305 – 328
+1. What is the difference between a property and a field?
+
+Fields are normal variable members of a class. 
+Generally, you should declare your fields as private, then use Properties to get and set their values. 
+By this way you won’t affect their values them directly.
+
+They are actually special methods called “accessors”. 
+Properties are called accessors because they offer a way to get and set a field if you have a private field. 
+They have two codes inside; set{}; and get{}; called “property accessors”.
+
+
+2. What is the difference between a property and a method?
+
+Properties are basically information that an object has. Methods are what an object can do. 
+Example: You have an instance (object) from a class named Vehicle, which can represent a car, a truck or a motorbike.
+
+3. What is your understanding of encapsulation?
+a single unit. It is the mechanism that binds together code and the data it manipulates. 
+In a different way, encapsulation is a protective shield that prevents the data from being accessed 
+by the code outside this shield.
+
+Technically in encapsulation, the variables or data of a class are hidden from any other class and 
+can be accessed only through any member function of own class in which they are declared.
+As in encapsulation, the data in a class is hidden from other classes, so it is also known as data-hiding.
+Encapsulation can be achieved by: Declaring all the variables in the class as private and using C# 
+Properties in the class to set and get the values of variables.
 
 
 
 
-2. When is memory for an object (reference type) allocated? When is the memory deallocated?
-ref are from the heap
+4. Some languages are case insensitive, that is, an ‘a” and an “A” are considered to be the same letter.
+C# is case sensitive. What implications does this have regarding the naming of variables, methods,
+and other identifiers? Do you think that the difference in case in the initial character of two different
+identifiers is sufficient to distinguish them¿
 
 
-The CLR must return the memory previously belonging to the object back to the heap; the
-memory that the object lived in must be deallocated.
+Lowercase _x and _y are private fi elds.
+Uppercase X and Y are public properties.
+■ All set accessors are passed the data to be written by using a hidden, built-in parameter
+named value.
+
+it is common to use identifiers that start with
+an uppercase letter for publicly accessible methods and fi elds and to use identifi ers that start
+with a lowercase letter for private methods and fi elds.
+these two practices can
+cause you to give properties and private fi elds a name that differs only in the case of the initial
+letter, and many organizations do precisely this.
+results in a program raising a StackOverfl ow-
+Exception exception
+
+
+5. Give an example that is not in the book of an instance where you might want to use a read-only
+property. Give an example not in the book of an instance where you might want to use s write-only
+property.
+
+readonly
+ if you need to ensure your property value will never be changed from the outside,
+important things like bank account
+
+writeonly
+t we can assign a value to but can't get that value
+somewhere that reguires workers to update forms or data, water deliveries
 
 
 
-3. What is a destructor?
+6. Can you think of a reason why you might ever want to make getters and setters private? Give an
+example. Also, make a case why getters and setters should never be private.
 
-You can use a destructor to perform any tidying up that’s required when an object is garbage col-
-lected. The CLR will automatically clear up any managed resources that an object uses, so in many of
-these cases, writing a destructor is unnecessary.
+no outside access
+This is useful in scenarios where you want to create an immutable property; a property that is set
+when the object is constructed and cannot subsequently be changed. For example, you might want to
+set the date on which an object was created or the name of the user who created it, or you might want
+to generate a unique identifi er value for the object.
 
 
 
+7. What are restrictions on the use of properties?
+You can assign a value through a property of a structure or class only after the structure or class
+has been initialized. The following code example is illegal because the location variable has not
+been initialized (by using new):
+You can’t use a property as a ref or an out argument to a method (although you can use a writ-
+able fi eld as a ref or an out argument). This makes sense because the property doesn’t really 
+point to a memory location; rather, it points to an accessor method, such as in the following
+example:
+MyMethod(ref location.X); // compile-time error
+■ A property can contain at most one get accessor and one set accessor. A property cannot
+contain other methods, fi elds, or properties.
+■ The get and set accessors cannot take any parameters. The data being assigned is passed to the
+set accessor automatically by using the value variable.
+■ You can’t declare properties by using const, such as is demonstrated here:
 
-4. What is the difference in syntax between a constructor and a destructor?
 
-The syntax for writing a destructor is a tilde (~) followed by the name of the class.
 
-A destructor is a special method, a little like a constructor, except that the CLR calls it after the
-reference to an object has disappeared
-struct MyStruct
+8. What is an object initializer? What is the syntax for an object initializer?
+
+
+Object initializers let you assign values to any accessible fields or properties of an object at 
+creation time without having to invoke a constructor followed by lines of assignment statements. The object initializer syntax enables you to specify arguments for a constructor or omit the arguments (and parentheses syntax)
+
+
+The object initializers syntax allows you to create an instance, and after that it assigns the newly 
+created object, with its assigned properties, to the variable in the assignment.
+Triangle tri5 = new Triangle("Equilateral triangle")
 {
-~MyStruct() { ... } // compile-time error
-}
-
-
-
-5. Give some examples of scarce resources. Why would you want to manage scarce resources?
-
-Scarce resources such as memory, database connections, or fi le handles need to be released, and they need to be released as soon as possible. In these situations, your only option is to release the resource
-yourself. You can achieve this by creating a disposal method—a method that explicitly disposes of a
-resource. If a class has a disposal method, you can call it and control when the resource is released.
-
-
-
-6. What is exception-safe disposal?
-
-One way to ensure that a disposal method (such as Close) is always called, regardless of whether there is
-an exception, is to call the disposal method within a fi nally block. Here’s the preceding example coded
-by using this technique:
-TextReader reader = new StreamReader(filename);
-try
-{
-string line;
-while ((line = reader.ReadLine()) != null)
-{
-Console.WriteLine(line);
-}
-}
-finally
-{
-reader.Close();
-}
-
-
-
-7. How do you think that the using statement works for resource management? Give an informal, English
-language, explanation of how it works.
-The using statement provides a clean mechanism for controlling the lifetimes of resources. You can
-create an object, and this object will be destroyed when the using statement block fi nishes.
-
-ensure that the object is disposed as soon as it goes out of scope, and it doesn't require explicit code to ensure that this happens
-
-
-
-8. What ill effects could result from attempting to dispose of a resource more than once?
-can run anytime after the last reference to an object has disappeared. So it is possible that the fi nalizer might actually be invoked by the garbage
-collector on its own thread while the Dispose method is being run, especially if the Dispose
-method has to do a signifi cant amount of work. You could reduce the possibility of resources
-being released multiple times by moving the statement that sets the disposed fi eld to true closer to the start of the Dispose method, but in this case you run the risk of not freeing the
-resources at all if an exception occurs after
-
-
-
-
-9. We will look at threads later in the term. For now, what is your understanding of how threads interact
-with resource management? A good guess is a siufficient answer to this question.
-
-
-
-
-
-
-10. Why does the book recommend not attempting to force the garbage collector? Are their any exceptions
-to this recommendation?
-
-
-
-
-
-
-
-
-
-
+Side1Length = 3,
+Side2Length = 3,
+Side3Length = 3
+};

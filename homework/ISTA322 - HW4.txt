@@ -1,0 +1,141 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 20, 2020
+
+
+Chapter 4:
+1. What are the .NET SDK command line tools used for? Is their use required? Why or why not?
+
+The .NET Core SDK includes a set of command-line tools for creating, managing, building, and running projects. 
+no you can use other IDE
+
+
+2. What kind of applications do the following templates create? Run these commands and read the
+documentation. A brief summary of each template is sufficient.
+dotnet new console --help
+new options
+Description: A project for creating a command-line application that can run on .NET Core on Windows, Linux and macOS
+
+dotnet new mvc --help
+Description: A project template for creating an ASP.NET Core application with example ASP.NET Core MVC Views and Controllers. This template can also be used for RESTful HTTP services.
+
+
+dotnet new web --help
+Description: An empty project template for creating an ASP.NET Core application. This template does not have any content in it.
+Options:
+
+
+
+
+
+3. What, specifically, do the following commands do?
+dotnet new globaljson --sdk-version 3.1.101 --output MySolution/MyProject
+dotnet new web --no-https --output MySolution/MyProject --framework netcoreapp3.1
+dotnet new sln -o MySolution
+dotnet sln MySolution add MySolution/MyProject
+
+The first command creates a MySolution/MyProject folder that contains a global.json file, which specifies that the project
+will use .NET Core version 3.1.1. The top-level folder, named MySolution, is used to group multiple projects together. The nested
+MyProject folder will contain a single project
+
+The second command creates the project using the web template,The --no-https argument creates a project without support for
+HTTPS.
+
+create a solution file that references the new project.
+Solution.sln file is created in the MySolution folder, and opening this file in Visual
+Studio will load the project created with the web template
+
+
+4. What is the purpose of the global.json file?
+Adding the global.json file ensures the right version of the .NET Core SDK will be used by the project.
+
+
+
+
+
+5. What does the method app.UseStaticFiles() do?
+
+
+This extension method enables support for serving static content from the wwwroot folder. I
+describe the support for static content in Chapter 15
+
+
+
+
+
+
+6. What do the following two commands do?
+dotnet build
+
+dotnet build - Builds a project and all of its dependencies.
+ommand builds the project and its dependencies into a set of binaries. The binaries include the project's code in Intermediate Language (IL) files with a .dll extension. Depending on the project type and settings, other files may be included, such as:
+
+An executable that can be used to run the application, if the project type is an executable targeting .NET Core 3.0 or later.
+Symbol files used for debugging with a .pdb extension.
+A .deps.json file, which lists the dependencies of the application or library.
+A .runtimeconfig.json file, which specifies the shared runtime and its version for an application.
+Other libraries that the project depends on (via project references or NuGet package references).
+
+
+dotnet run
+dotnet run - Runs source code without any explicit compile or launch commands.
+The dotnet run command provides a convenient option to run your application from the source code with one command. It's useful for fast iterative development from the command line. The command depends on the dotnet build command to build the code. Any requirements for the build, such as that the project must be restored first, apply to dotnet run as well.
+
+
+
+
+
+
+
+
+
+
+7. (not in book) You cah manage pacakges using the NuGet package manager and the command line tool
+dotnet add package. What are packages and what are they used for.
+NuGet packages with reusable source code extending core .NET functionality, typically in self-contained source files added to your projects as internal classes that can be easily kept up-to-date with NuGet.
+
+
+
+
+
+
+8. What are tool packages and what are they used for?
+
+
+Tool packages install commands that can be used from the command line to perform operations on .NET Core projects. One
+common example is the Entity Framework Core tools package that installs commands that are used to manage databases in ASP.
+NET Core projects. Tool packages are managed using the dotnet tool command.
+
+
+9. What are tool packages and what are they used for?
+
+Tool packages install commands that can be used from the command line to perform operations on .NET Core projects. One
+common example is the Entity Framework Core tools package that installs commands that are used to manage databases in ASP.
+NET Core projects. Tool packages are managed using the dotnet tool command.
+
+
+
+
+10. What are client side packages and what are they used for?
+
+Client-side packages contain content that is delivered to the client, such as images, CSS stylesheets, JavaScript files, and static
+HTML. Client-side packages are added to ASP.NET Core using the Library Manager (LibMan) tool.
+
+
+
+
+11. List two ways that a developer can debug code.
+
+
+Visual Studio and Visual Studio Code
+
+
+Select Debug ➤ Toggle Breakpoint, which is available in both Visual Studio and Visual Studio Code. A breakpoint is shown as a
+red dot alongside the code statement, as shown in Figure 4-14, and will interrupt execution and pass control to the user.
+Start the project by selecting Debug ➤ Start Debugging, which is available in both Visual Studio and Visual Studio Code.
+(Choose .NET Core if Visual Studio Code prompts you to select an environment and then select the Start Debugging menu item
+again.)
+
+
+
+

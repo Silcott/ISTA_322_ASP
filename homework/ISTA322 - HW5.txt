@@ -1,0 +1,153 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 20, 2020
+
+
+Chapter 5:
+1. What is the purpose of the null conditional operator? Does it apply to value types or reference types?
+Why or why not?
+
+The null conditional operator allows for null values to be detected more elegantly
+
+no,
+
+Nullable reference types shift responsibility for null checking to the code that assigns the value to a variable. When the nullable
+reference feature is enabled, regular reference types cannot be assigned null values, such as assigning null to a string, for
+example
+
+
+
+2. What is the null coalescing operator? What does it do?
+
+two question
+marks
+to set a fallback value to prevent null values being used in the applicatio
+
+null coalescing operator ensures that I don’t include null values in the results displayed in the browser
+
+
+3. How is the null conditional operator different from a nullable type? What is the purpose of nullable
+types?
+
+null conditional operator ensures that I don’t get a NullReferenceException when navigating through the object
+properties,
+
+nullable type is a vaild value for all types which means that I can assign null to a string variable, like
+
+
+
+
+4. When you create an automatic property and initialize the property with a value, can the value be
+changed later? Can another value be assigned to the property? Can the value be changed in the
+constructor?
+Yes
+Yes
+No
+
+Assigning a value to an auto-implemented property doesn’t prevent the setter from being used to change the property later
+and just tidies up the code for simple types that ended up with a constructor that contained a list of property assignments to provide
+default values. In the example, the initializer assigns a value of Watersports to the Category property. The initial value can be
+changed, which I do when I create the kayak object and specify a value of Water Craft instead.
+
+
+
+
+5. What is an object initializer and what is it for? What is an collection initializer and what is it for?
+
+object initializer 
+allows me to create
+an object and specify its property values in a single step,
+
+
+collection initializer
+allows the creation of a collection and its contents to be specified in a single
+step.
+
+
+
+
+6. What does the is keyword do?
+
+The is keyword is used to perform a type test
+The is keyword performs a type check and, if a value is of the specified type, will assign the value to a new variable,
+
+
+
+
+
+
+7. How are extension methods defined?
+Extension methods are a convenient way of adding methods to classes that you cannot modify directly
+
+
+
+
+
+
+
+8. What is implicit typing or type inference? How do you implement it?
+The var keyword allows you to define a local variable without explicitly specifying the variable type,
+This is called type inference, or implicit typing.
+
+
+
+
+
+9. What is a default implementation of an interface? What is the purpose of a default implementation
+of an interface?
+
+
+add new members to a public interface, You would break existing implementers of the interface; after all they would have no implementation for the new member
+
+makes it possible to update interfaces without breaking the existing implementations of them.
+
+
+
+
+
+
+10. What are asynchronous methods? Why should we use them? How are they used?
+
+Asynchronous methods perform work in the background and notify you when they are complete, allowing your code to take care
+of other business while the background work is performed. Asynchronous methods are an important tool in removing bottlenecks
+from code and allow applications to take advantage of multiple processors and processor cores to perform work in parallel.
+In ASP.NET Core, asynchronous methods can be used to improve the overall performance of an application by allowing the
+server more flexibility in the way that requests are scheduled and executed. Two C# keywords—async and await—are used to
+perform work asynchronously.
+
+
+
+
+
+11. When you use the await keyword, do you have to use the async keyword? Why or why not?
+
+
+Yes,
+
+When you use the await keyword, you must also add the async keyword to the method signature
+
+This is because await
+and async are implemented using some clever compiler tricks, meaning that they allow a more natural syntax, but they do not
+change what is happening in the methods to which they are applied.
+
+
+
+
+
+12. (not in book) What is the yield keyword used for? How do you use it?
+
+returns an object that implements the IEnumerable interface.
+
+ a yield statement looks much like a return statement, except that instead of stopping execution of the function and returning, yield instead provides a value to the code looping over the generator and pauses execution of the generator function.
+
+
+
+
+13. What is the effect of using the nameof() expression?
+the compiler takes responsibility for producing a
+name string,
+
+
+
+
+
