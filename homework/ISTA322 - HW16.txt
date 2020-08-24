@@ -1,0 +1,127 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 23, 2020
+
+
+Chapter 16:
+1. Give five examples (using valid C# code) of the five bitwise operators listed in the text.
+
+The NOT (~) operator
+~204 is 0b0_11111111_11111111_
+11111111_00110011 (which is actually the int representation of –205 in C#).
+
+The left-shift (<<) operator This
+The 8-bit expres-
+sion 204 << 2 returns the value 48. (In binary, 204 decimal is 0b0_11001100, and shifting it left by two places yields 0b0_00110000, or 48 decimal.)
+
+The OR (|) operator This is a binary operator that performs a bitwise OR operation, returning
+a value containing a 1 in each position in which either of the operands has a 1. For example, the
+8-bit expression 204 | 24 has the value 220 (204 is 0b0_11001100, 24 is 0b0_00011000, and 220 is
+0b0_11011100).
+
+The AND (&) operator This operator performs a bitwise AND operation. AND is similar to
+the bitwise OR operator, but it returns a value containing a 1 in each position where both
+of the operands have a 1. So, the 8-bit expression 204 & 24 is 8 (204 is 0b0_11001100, 24 is
+0b0_00011000, and 8 is 0b0_00001000).
+
+The XOR (^) operator This operator performs a bitwise exclusive OR operation, returning a 1
+in each bit where there is a 1 in one operand or the other but not both. (Two 1s yield a 0; this is
+the “exclusive” part of the operator.) So the 8-bit expression 204 ^ 24 is 212 (0b0_11001100 ^ 0b0_00011000 is 0b0_11010100).
+
+
+2. Does C# implement the right-shift (>>) operator? If so, give an example of its operation using valie
+C# code.
+
+The >> operator shifts its left-hand operand right by the number of bits defined by its right-hand operand.
+
+The right-shift operation discards the low-order bits, as the following example shows:
+
+uint x = 0b_1001;
+Console.WriteLine($"Before: {Convert.ToString(x, toBase: 2), 4}");
+
+uint y = x >> 2;
+Console.WriteLine($"After:  {Convert.ToString(y, toBase: 2), 4}");
+// Output:
+// Before: 1001
+// After:    10
+
+
+
+
+3. Explain in detail this code: bits & (1 << index);.
+
+<< operator shifts its left-hand operand left by the number of bits defined by its right-hand operand.
+
+
+
+4. Explain in detail this code: bits |= (1 << index);.
+
+The | operator computes the bitwise logical OR of its operands:
+
+
+
+5. Explain in detail this code: bits &= (1 << index);.
+
+The & operator computes the bitwise logical AND of its operands:
+
+
+
+6. How does C# interpret this? bool peek = bits[n];
+
+if the index n of bits equals peeks then true
+
+
+
+7. How does C# interpret this? bits[n] = true;
+
+index n of bits equals true
+
+
+
+8. How does C# interpret this? bits[n] ^= true;
+
+The ^ operator computes the bitwise logical exclusive OR, also known as the bitwise logical XOR, of its operands:
+
+
+
+
+9. Assume that users were assigned read, write, and execute permissions 
+according to this scheme: 
+read = 1, write = 2, execute = 4. 
+How would you interpret the following user permissions:
+
+(a) permission = 0 - no permission
+(b) permission = 1 - read
+(c) permission = 2 - write
+(d) permission = 3 - read and write so, (read) 1 + (write) 2 = 3
+(e) permission = 4 - execute 
+(f) permission = 5 - read and execute so, (read) 1 + (execute) 4 = 5
+(g) permission = 6 - write and execute so, (write) 2 + (execute) 4 = 6
+(h) permission = 7 - All permissions so, (read) 1 + (write) 2 + (execute) 4 = 7
+
+
+
+
+
+
+10. Answer the previous question by converting the decimal permissions into binary permissions. What
+does this tell you about using this shceme of permissions?
+
+(a) permission = 0 - no permission
+(b) permission = 1 - read
+(c) permission = 2 - write
+(d) permission = 3 - read and write so, (read) 1 + (write) 2 = 3
+(e) permission = 4 - execute 
+(f) permission = 5 - read and execute so, (read) 1 + (execute) 4 = 5
+(g) permission = 6 - write and execute so, (write) 2 + (execute) 4 = 6
+(h) permission = 7 - All permissions so, (read) 1 + (write) 2 + (execute) 4 = 7
+
+
+
+
+
+
+
+
+
+
