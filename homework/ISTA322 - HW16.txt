@@ -47,8 +47,8 @@ Console.WriteLine($"After:  {Convert.ToString(y, toBase: 2), 4}");
 
 
 
-
-3. Explain in detail this code: bits & (1 << index);.
+7 9 26 48
+3. Explain in detail this code: bits & (1 << index);. 
 
 << operator shifts its left-hand operand left by the number of bits defined by its right-hand operand.
 

@@ -1,0 +1,92 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 24, 2020
+
+
+Chapter 17:
+1. What is a type parameter?
+C# provides generics to remove the need for casting, improve type safety, reduce the amount of
+boxing required, and make it easier to create generalized classes and methods. Generic classes and
+methods accept type parameters, which specify the types of objects on which they operate. In C#, you
+indicate that a class is a generic class by providing a type parameter in angle brackets, like this:
+class Queue<T>
+{
+...
+}
+
+
+
+2. What does a type parameter do?
+
+specify the types of objects on which they operate
+
+
+
+3. How many type parameters can a generic class have?
+A generic class can have multiple type parameters. For example, the generic Dictionary class
+defi ned in the System.Collections.Generic namespace in the .NET Framework class library expects two
+type parameters: one type for keys, and another for the values
+
+
+4. What is the difference between a generic class and a generalized class?
+generic class that uses type parameters is different from a generalized
+class designed to take parameters that can be cast to different types.
+
+For example, the object-based version of the Queue class shown earlier is a generalized class. There is a single implementation of this class, and its methods take object parameters and return object types. You can use this class with ints,
+strings, and many other types, but in each case, you are using instances of the same class, and you have
+to cast the data you are using to and from the object type.
+
+
+5. What is a constraint? How do you specify a constraint?
+
+By using a constraint, you can limit the type parameters of a generic class to those that implement
+a particular set of interfaces and therefore provide the methods defi ned by those interfaces. For
+example, if the IPrintable interface defi ned the Print method, you could create the PrintableCollection
+class like this:
+public class PrintableCollection<T> where T : IPrintable
+
+
+
+6. What is a generic method? How do you define a generic method?
+A method declared with the type parameters for its return type or parameters is called a generic method.
+
+public void AddOrUpdate(int index, T item)
+    {
+        if(index >= 0 && index < 10)
+            _data[index] = item;
+    }
+
+    public T GetData(int index)
+    {
+        if(index >= 0 && index < 10)
+            return _data[index];
+        else 
+            return default(T);
+    }
+}
+Above, the AddorUpdate() and the GetData() methods are generic methods. 
+The actual data type of the item parameter will be specified at the time of 
+instantiating the DataStore<T> class, as shown below.
+
+
+7. What do we mean when we say that a generic type interface is invariant?
+
+Covariant would mean that a List<String> is a subtype of List<Object> , 
+contravariant that a List<Object> is a subtype of List<String> and 
+invariant that neither is a subtype of the other, i.e. List<String> and List<Object> are inconvertible types
+
+
+
+8. What do we mean when we cay that a generic type interface is covariant?
+
+
+
+
+
+9. Does covariance work with value types? Does it work with reference types?
+
+
+
+
+
+10. What do we mean when we cay that a generic type interface is contravariant?

@@ -21,7 +21,7 @@ Properties are basically information that an object has. Methods are what an obj
 Example: You have an instance (object) from a class named Vehicle, which can represent a car, a truck or a motorbike.
 
 3. What is your understanding of encapsulation?
-a single unit. It is the mechanism that binds together code and the data it manipulates. 
+a single unit. It binds together code and the data it manipulates. 
 In a different way, encapsulation is a protective shield that prevents the data from being accessed 
 by the code outside this shield.
 
@@ -74,7 +74,9 @@ example. Also, make a case why getters and setters should never be private.
 
 no outside access
 This is useful in scenarios where you want to create an immutable property; a property that is set
-when the object is constructed and cannot subsequently be changed. For example, you might want to
+when the object is constructed and cannot subsequently be changed. 
+
+For example, you might want to
 set the date on which an object was created or the name of the user who created it, or you might want
 to generate a unique identifi er value for the object.
 
