@@ -1,0 +1,30 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 23, 2020
+
+
+Chapter 16:
+1. What is the purpose of the null conditional operator? Does it apply to value types or reference types?
+Why or why not?
+2. What is the null coalescing operator? What does it do?
+3. How is the null conditional operator different from a nullable type? What is the purpose of nullable
+types?
+4. When you create an automatic property and initialize the property with a value, can the value be
+changed later? Can another value be assigned to the property? Can the value be changed in the
+constructor?
+5. What is an object initializer and what is it for? What is an collection initializer and what is it for?
+6. What does the is keyword do?
+7. How are extension methods defined?
+8. What is implicit typing or type inference? How do you implement it?
+9. What is a default implementation of an interface? What is the purpose of a default implementation
+of an interface?
+10. What are asynchronous methods? Why should we use them? How are they used?
+11. When you use the await keyword, do you have to use the async keyword? Why or why not?
+12. (not in book) What is the yield keyword used for? How do you use it?
+13. What is the effect of using the nameof() expression
+
+
+
+
+
+

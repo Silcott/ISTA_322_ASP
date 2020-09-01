@@ -1,0 +1,112 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: August 27, 2020
+
+
+Chapter 6:
+1. What is unit testing as defined by the book?
+Unit testing is a form of testing in which individual
+components are isolated from the rest of the application so their behavior can be thoroughly validated. ASP.NET Core has been
+designed to make it easy to create unit tests, and there is support for a wide range of unit testing frameworks. I show you how to set
+up a unit test project and describe the process for writing and running tests. Table 6-1 summarizes the chapter
+
+
+
+
+2. What is the convention for creating unit tests in ASP.NET Core applications?
+dotnet new globaljson --sdk-version 3.1.101 --output Testing/SimpleApp
+dotnet new web --no-https --output Testing/SimpleApp --framework netcoreapp3.1
+dotnet new sln -o Testing
+dotnet sln Testing add Testing/SimpleApp
+
+
+
+
+3. Name three unit test project tools used for ASP.NET Core applications.
+mstest This template creates a project configured for the MS Test framework, which is produced by Microsoft.
+nunit This template creates a project configured for the NUnit framework.
+xunit This template creates a project configured for the XUnit framework.
+
+
+
+
+4. What is the convention for naming unit tests in ASP.NET Core applications?
+The convention is to name the unit test project <ApplicationName>.Tests.
+
+
+
+
+5. What is the convention for naming the test classes in AP.NET Core? What is the convention for
+naming the methods in the test classes?
+in the
+Testing folder to create the XUnit test project named SimpleApp.Tests, add it to the solution file, and create a reference between
+projects so the unit tests can be applied to the classes defined in the SimpleApp project.
+
+
+
+
+6. What is the purpose of the Fact attribute in Xunit? (not in book) What is the purpose of the Theory
+attribute in Xunit?
+xUnit uses the [Fact] attribute to denote a parameterless unit test, which tests invariants in your code. 
+In contrast, the [Theory] attribute denotes a parameterised test that is true for a subset of data. 
+That data can be supplied in a number of ways, but the most common is with an [InlineData] attribute.
+
+
+
+7. Describe the different elements of the AAA testing pattern.
+Arrange: Initializes objects, creates mocks with arguments that are passed to the method under test and adds expectations.
+Act: Invokes the method or property under test with the arranged parameters.
+Assert: Verifies that the action of the method under test behaves as expected.
+
+
+
+8. Describe the use of the methods in the Assert class. Describe the purpose, parameters, and return
+value of the Assert.Equals() method.
+
+Equal(expected, result) This method asserts that the result is equal to the expected outcome. There are overloaded
+versions of this method for comparing different types and for comparing collections.
+There is also a version of this method that accepts an additional argument of an object that
+implements the IEqualityComparer<T> interface for comparing objects.
+NotEqual(expected, result) This method asserts that the result is not equal to the expected outcome.
+True(result) This method asserts that the result is true.
+False(result) This method asserts that the result is false.
+IsType(expected, result) This method asserts that the result is of a specific type.
+IsNotType(expected, result) This method asserts that the result is not a specific type.
+IsNull(result) This method asserts that the result is null.
+IsNotNull(result) This method asserts that the result is not null.
+InRange(result, low, high) This method asserts that the result falls between low and high.
+NotInRange(result, low, high) This method asserts that the result falls outside low and high.
+Throws(exception, expression) This method asserts that the specified expression throws a specific exception type.
+
+
+
+9. What is the key to isolating a component for testing?
+The key to isolating components is to use C# interfaces. To separate the controller from the repository, I added a new class file called
+IDataSource.cs to the Models folder and used it to define the interface shown in Listing 6-14.
+
+
+
+10. What is a mocking package? What does it do?
+It was easy to create a fake implementation for the IDataSource interface, but most classes for which fake implementations are
+required are more complex and cannot be handled as easily.
+A better approach is to use a mocking package, which makes it easy to create fake—or mock—objects for tests. There are
+many mocking packages available, but the one I use (and have for years) is called Moq. To add Moq to the unit test project, run the
+command shown in Listing 6-18 in the Testing folder.
+
+
+11. (not in book) What is the difference between the Setup() and the SetupGet() methods of Moq?
+etup() can be used for mocking a method or a property.
+
+SetupGet() is specifically for mocking the getter of a property. Took a quick peek at the Moq source code and it looks like if you use Setup() on a property getter, it will call SetupGet(). So in that case, it is probably more personal preference as to whether you want to be more explicit and use SetupGet() instead of Setup().
+
+Of course, my knowledge of Moq is limited, so I don't know if there special cases where you would need to use SetupGet() over Setup().
+
+
+
+
+
+
+
+
+
+

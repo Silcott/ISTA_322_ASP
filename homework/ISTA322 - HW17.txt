@@ -20,6 +20,7 @@ class Queue<T>
 
 specify the types of objects on which they operate
 
+it speacilaizes the method or class**
 
 
 3. How many type parameters can a generic class have?
