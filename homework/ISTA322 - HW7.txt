@@ -1,0 +1,140 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: Sept 10, 2020
+
+
+Chapter 7:
+1. For the Sports Store application, what requirements does the author identify for implementation?
+create an online
+product catalog that customers can browse by category and page, a shopping cart where users can add and remove products, and
+a checkout where customers can enter their shipping details. I will also create an administration area that includes create, read,
+update, and delete (CRUD) facilities for managing the catalog, and I will protect it so that only logged-in administrators can make
+changes.
+
+
+
+
+2. What is the purpose of the Startup class in ASP.NET Core applications?
+
+The Startup class is responsible for configuring the ASP.NET Core application.
+
+
+
+
+
+3. What is the purpose of the CofitureServices method in the Startup class?
+
+The ConfigureServices method is used to set up objects, known as services, that can be used throughout the application and
+that are accessed through a feature called dependency injection
+
+
+
+
+
+
+
+4. What is a request pipeline and how does it work?
+
+ASP.NET Core receives HTTP requests and passes them along a request pipeline, which is populated with middleware
+components registered in the Configure method. Each middleware component is able to inspect requests, modify them, generate
+a response, or modify the responses that other components have produced. The request pipeline is the heart of ASP.NET Core, and
+I describe it in detail in Chapter 12, where I also explain how to create custom middleware components
+
+
+
+
+
+
+
+5. What is the View Start class and how do we use it?
+
+The view start file tells Razor to use a layout file in the HTML that it generates, reducing the amount of duplication in views. To
+create the view, add a Razor layout named _Layout.cshtml to the Views/Shared folder
+
+
+
+
+
+
+6. What is the feature in ASP.NET Core that generates the database schema for us? What does the file
+created by this feature contain?
+
+
+Entity Framework Core is able to generate the schema for the database using the data model classes through a feature called
+migrations.
+
+One of the file names will be a timestamp followed by _Initial.cs, and this is the class that will be
+used to create the initial schema for the database. If you examine the contents of this file, you can see how the Product model class
+has been used to create the schema.
+
+
+
+
+7. When ASP.NET Core sees that a controller instance needs to be created, and that the controller object
+required another object that iplements some interface, how does it determine which interface should b
+e implemented?
+
+When ASP.NET Core needs to create a new instance of the HomeController class to handle an HTTP request, it will inspect the
+constructor and see that it requires an object that implements the IStoreRepository interface. To determine what implementation
+class should be used, ASP.NET Core consults the configuration in the Startup class, which tells it that EFStoreRepository should be
+used and that a new instance should be created for every request.
+
+
+
+
+
+
+
+
+
+8. Explain how the paging mechanism works. How does the application calculate the number of pages
+required? How is this data passed to the view?
+
+
+pagination so that the view displays a smaller number of products on a page, and the user can move from page to
+page to view the overall catalog
+
+
+To support the tag helper, I am going to pass information to the view about the number of pages available, the current page, and
+the total number of products in the repository. The easiest way to do this is to create a view model class, which is used specifically
+to pass data between a controller and a view. Create a Models/ViewModels folder in the SportsStore project, add to it a class file
+named PagingInfo.cs,
+
+
+
+
+9. How does the book describe dependency injection? How is dependency injection used?
+
+ASP.NET Core creates a new EFStoreRepository object and uses it
+to invoke the HomeController constructor to create the controller object that will process the HTTP request.
+This is known as dependency injection, and its approach allows the HomeController object to access the application’s repository
+through the IStoreRepository interface without knowing which implementation class has been configured
+
+
+
+
+
+
+
+10. How are the routes in MapDefaultControllerRoute() method arranged? Why is this important?
+
+
+the routing system processes routes in the order they are listed, and I need the new route to take precedence over the
+existing one.
+This is the only alteration required to change the URL scheme for product pagination. ASP.NET Core and the routing function
+are tightly integrated, so the application automatically reflects a change like this in the URLs used by the application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Github\\repo\\ISTA_322_ASP\\pro-asp.net-core-3-master\\Update for Blazor Final Release\\37 - Blazor WebAssembly\\BlazorWebAssembly\\BlazorWebAssembly.csproj": {}
+  },
+  "projects": {
+    "C:\\Github\\repo\\ISTA_322_ASP\\pro-asp.net-core-3-master\\Update for Blazor Final Release\\37 - Blazor WebAssembly\\BlazorWebAssembly\\BlazorWebAssembly.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Github\\repo\\ISTA_322_ASP\\pro-asp.net-core-3-master\\Update for Blazor Final Release\\37 - Blazor WebAssembly\\BlazorWebAssembly\\BlazorWebAssembly.csproj",
+        "projectName": "BlazorWebAssembly",
+        "projectPath": "C:\\Github\\repo\\ISTA_322_ASP\\pro-asp.net-core-3-master\\Update for Blazor Final Release\\37 - Blazor WebAssembly\\BlazorWebAssembly\\BlazorWebAssembly.csproj",
+        "packagesPath": "C:\\Users\\silco\\.nuget\\packages\\",
+        "outputPath": "C:\\Github\\repo\\ISTA_322_ASP\\pro-asp.net-core-3-master\\Update for Blazor Final Release\\37 - Blazor WebAssembly\\BlazorWebAssembly\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\silco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\Github\\repo\\ISTA_322_ASP\\pro-asp.net-core-3-master\\Update for Blazor Final Release\\37 - Blazor WebAssembly\\DataModel\\DataModel.csproj": {
+                "projectPath": "C:\\Github\\repo\\ISTA_322_ASP\\pro-asp.net-core-3-master\\Update for Blazor Final Release\\37 - Blazor WebAssembly\\DataModel\\DataModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Blazor": {
+              "target": "Package",
+              "version": "[3.2.0-preview1.20073.1, )"
+            },
+            "Microsoft.AspNetCore.Blazor.Build": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0-preview1.20073.1, )"
+            },
+            "Microsoft.AspNetCore.Blazor.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0-preview1.20073.1, )"
+            },
+            "Microsoft.AspNetCore.Blazor.HttpClient": {
+              "target": "Package",
+              "version": "[3.2.0-preview1.20073.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

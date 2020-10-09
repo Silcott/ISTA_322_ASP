@@ -1,4 +1,7 @@
-using System;
+
+Use the following code to configure the application:
+
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -12,55 +15,60 @@ using System;
     using Advanced.Models;
     using Microsoft.AspNetCore.ResponseCompression;
 
-    namespace Advanced {
-        public class Startup {
+    namespace Advanced
+{
+    public class Startup
+    {
 
-            public Startup(IConfiguration config) {
-                Configuration = config;
-            }
+        public Startup(IConfiguration config)
+        {
+            Configuration = config;
+        }
 
-            public IConfiguration Configuration { get; set; }
+        public IConfiguration Configuration { get; set; }
 
-            public void ConfigureServices(IServiceCollection services) {
-                services.AddDbContext<DataContext>(opts => {
-                    opts.UseSqlServer(Configuration[
-                        "ConnectionStrings:PeopleConnection"]);
-                    opts.EnableSensitiveDataLogging(true);
-                });
-                services.AddControllersWithViews().AddRazorRuntimeCompilation();
-                services.AddRazorPages().AddRazorRuntimeCompilation();
-                services.AddServerSideBlazor();
-                services.AddSingleton<Services.ToggleService>();
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(opts => {
+                opts.UseSqlServer(Configuration[
+                    "ConnectionStrings:PeopleConnection"]);
+                opts.EnableSensitiveDataLogging(true);
+            });
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddServerSideBlazor();
+            services.AddSingleton<Services.ToggleService>();
 
-                services.AddResponseCompression(opts => {
-                    opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-                        new[] { "application/octet-stream" });
-                });            
-            }
+            services.AddResponseCompression(opts => {
+                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                    new[] { "application/octet-stream" });
+            });
+        }
 
-            public void Configure(IApplicationBuilder app, DataContext context) {
+        public void Configure(IApplicationBuilder app, DataContext context)
+        {
 
-                app.UseDeveloperExceptionPage();
-                app.UseStaticFiles();
-                app.UseRouting();
+            app.UseDeveloperExceptionPage();
+            app.UseStaticFiles();
+            app.UseRouting();
 
-                app.UseEndpoints(endpoints => {
-                    endpoints.MapControllerRoute("controllers",
-                        "controllers/{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapDefaultControllerRoute();
-                    endpoints.MapRazorPages();
-                    endpoints.MapBlazorHub();
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllerRoute("controllers",
+                    "controllers/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
 
-                    endpoints.MapFallbackToClientSideBlazor<BlazorWebAssembly.App>
-                        ("/webassembly/{*path:nonfile}", "index.html");                
+                endpoints.MapFallbackToClientSideBlazor<BlazorWebAssembly.App>
+                    ("/webassembly/{*path:nonfile}", "index.html");
 
-                    endpoints.MapFallbackToPage("/_Host");
-                });
+                endpoints.MapFallbackToPage("/_Host");
+            });
 
-                app.Map("/webassembly", opts =>
-                    opts.UseClientSideBlazorFiles<BlazorWebAssembly.App>());
+            app.Map("/webassembly", opts =>
+                opts.UseClientSideBlazorFiles<BlazorWebAssembly.App>());
 
-                SeedData.SeedDatabase(context);
-            }
+            SeedData.SeedDatabase(context);
         }
     }
+}

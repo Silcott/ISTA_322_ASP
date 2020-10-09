@@ -1,0 +1,84 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: Sept 10, 2020
+
+
+Chapter 19:
+1. What is an enumerable collection?
+The quick answer is that it is a collection that
+implements the System.Collections.IEnumerable interface.
+
+
+
+2. What properties and methods does the IEnumerable interface contain?
+The IEnumerable interface contains a single method called GetEnumerator:
+
+
+
+
+3. What properties and methods does the IEnumerator interface contain?
+object Current { get; }
+bool MoveNext();
+void Reset();
+
+
+
+
+4. What values does the MoveNext() method return? What does it do?
+You call the MoveNext method to move the pointer down to the next (fi rst) item in
+the list; the MoveNext method should return true if there actually is another item and false if there isn’t
+
+repeatedly calling the MoveNext method, and using the
+enumerator to retrieve the value of the Current property, you can move forward through the elements of a collection one item at a time. This is exactly what the foreach statement does
+
+
+5. What values does the Reset() method return? What does it do?
+use the Reset method to return the pointer back to before the fi rst item in the list.
+
+
+
+
+6. Are IEnumerable and IEnumerator type safe? Why or why not? If not, how do you implement type
+safety?
+No
+you are observant, you will have noticed that the Current property of the IEnumerator interface
+exhibits non–type-safe behavior in that it returns an object rather than a specifi c type. However, you
+should be pleased to know that the Microsoft .NET Framework class library also provides the generic
+IEnumerator<T> interface, which has a Current property that returns a T instead. Likewise, there is also an IEnumerable<T> interface containing a GetEnumerator method that returns an Enumerator<T>
+object.
+
+
+
+
+7. Why don’t recursive methods retain state when used with data structures like binary trees?
+Recursive algorithms, such as those used when walking a binary tree, do not lend themselves to maintaining state information between method calls in an easily accessible manner. For this reason, you will fi rst preprocess the data in the binary tree into a more amenable data structure (a queue) and actually enumerate this data structure instead. Of course, this deviousness is hidden from the user iterating through the elements of the binary tree!
+
+
+
+
+
+8. How do you define an enumerator?
+you need to remember where you are in the structure so that subsequent calls to the MoveNext method can update the position appropriatel
+
+
+
+
+9. What is an iterator?
+An iterator is a block of code that yields an ordered sequence of values. An iterator is not actually a member of an enumerable class; rather, it specifi es the sequence that an enumerator should use
+for returning its values. In other words, an iterator is just a description of the enumeration sequence
+that the C# compiler can use for creating its own enumerator.
+
+
+
+10. What does yield do?
+The yield keyword indicates the value that should be returned by each iteration. If it helps, you can think of the yield statement as calling a temporary halt to the method, passing back a value to
+the caller. When the caller needs the next value, the GetEnumerator method continues at the point at
+which it left off, looping around and then yielding the next value.
+
+
+
+
+
+
+
+

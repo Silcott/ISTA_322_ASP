@@ -1,0 +1,137 @@
+-- Name: James Silcott
+-- Homework: ISTA322-Silcott
+-- Date: Sep 16, 2020
+
+
+Chapter 20:
+
+1. What is a delegate? Explain delegates in terms of pointers and reference types.
+
+A delegate is an object that refers to a method
+
+If you are familiar with C++, a delegate is similar to a function pointer. However, unlike
+function pointers, delegates are completely type safe. You can make a delegate refer only to
+a method that matches the signature of the delegate, and you cannot invoke a delegate that
+does not refer to a valid method
+
+2. How do you declare a delegate? Include a discussion of types, return values, names, and parameters.
+
+ // Declare the delegate (if using non-generic pattern).
+    public delegate void SampleEventHandler(object sender, SampleEventArgs e);
+
+
+there are no parentheses after the method name, and you do not specify any
+parameters (if the method takes them).
+performCalculationDelegate();
+
+it retrieves the method that the delegate references and
+runs that instead. Later on, you can change the method to which a delegate refers, so a statement that
+calls a delegate might actually run a different method each time it executes. Additionally, a delegate
+can reference more than one method at a time (think of it as a collection of method references), and
+when you invoke a delegate, all the methods to which it refers will run.
+
+3. How do you create instances of delegates and assign values to the instance? What are the values?
+
+After you have declared the delegate, you can create an instance and make it refer to a matching method by using the += compound assignment operator
+
+class Controller
+{
+delegate void stopMachineryDelegate(); // the delegate type
+private stopMachineryDelegate stopMachinery; // an instance of the delegate
+...
+public Controller()
+{
+this.stopMachinery += folder.StopFolding;
+}
+...
+}
+
+4. How do you invoke a method that has been added to a delegate?
+
+You can call the method by invoking the delegate, like this:
+public void ShutDown()
+{
+this.stopMachinery();
+...
+}
+You use the same syntax to invoke a delegate as you use to call a method. If the method that the
+delegate refers to takes any parameters, you should specify them at this time between the parentheses
+Note If you attempt to invoke a delegate that is uninitialized and does not refer to any
+methods, you will get a NullReferenceException exception.
+
+5. What is an event? Why do we have events?
+
+
+Events in C# support a related scenario
+
+Events, in conjunction with delegates, provide the infrastructure with which you
+can implement systems that follow this approach
+
+Events are a special kind of multicast delegate that can only be invoked from within the class or struct where they are declared (the publisher class). If other classes or structs subscribe to the event, their event handler methods will be called when the publisher class raises the event
+
+The event keyword was explicitly invented to prevent you from doing what you want to do. It restricts access to the underlying delegate object so nobody can directly mess with the events handler subscriptions that it stores. Events are accessors for a delegate, just like a property is an accessor for a field. A property only permits get and set, an event only permits add and remove.
+
+This keeps your code safe, other code can only remove an event handler if it knows the event handler method and the target object.
+
+
+6. How do you declare events?
+
+ // Declare the event.
+    public event SampleEventHandler SampleEvent;
+
+
+7. How do delegates recognize event subscriptions? How do you unsubscribe an event from a delegate?
+
+Use the addition assignment operator (+=) to attach an event handler to the event. 
+Use the subtraction assignment operator (-=) to unsubscribe from an event:
+
+8. How do you raise an event? How do you declare code that raises an event?
+You can raise an event by calling it like a method. When you raise an event, all the attached delegates
+are called in sequence.
+
+Use the same syntax as a method call. You must supply arguments to match the type of
+the parameters expected by the delegate referenced by the event. Don’t forget to check
+whether the event is null. For example:
+class MyClass
+{
+public event myDelegate MyEvent;
+...
+private void RaiseEvent()
+{
+if (this.MyEvent != null)
+{
+this.MyEvent();
+}
+}
+...
+
+
+
+9. Explain with specificity what happens when an event fires and that event has been attached to a
+delegate.
+
+Declare a delegate type
+
+Create an instance of a delegate
+initialized with a single specifi c
+method
+
+Invoke a delegate
+
+Declare an event
+
+Subscribe to an event
+
+Unsubscribe from an event
+
+Raise an event
+
+
+
+
+
+
+
+
+
+

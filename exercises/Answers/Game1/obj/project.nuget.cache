@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FAj7DrwVJwu4yFYbXtNwrlo0Rv3mZab/Wye02Xl64P4RcThJ9iagdQSbt2k8Za+YWAOTBuPL/9+MoKCvmFTxFQ==",
+  "success": true,
+  "projectFilePath": "C:\\Github\\repo\\ISTA_322_ASP\\exercises\\Answers\\Game1\\Game1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\silco\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\silco\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+  ],
+  "logs": []
+}
