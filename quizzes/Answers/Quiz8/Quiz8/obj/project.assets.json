@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Github\\repo\\ISTA_322_ASP\\quizzes\\Answers\\Quiz8\\Quiz8\\Quiz8.csproj",
+      "projectUniqueName": "F:\\REPO\\ISTA_322_ASP\\quizzes\\Answers\\Quiz8\\Quiz8\\Quiz8.csproj",
       "projectName": "Quiz8",
-      "projectPath": "C:\\Github\\repo\\ISTA_322_ASP\\quizzes\\Answers\\Quiz8\\Quiz8\\Quiz8.csproj",
+      "projectPath": "F:\\REPO\\ISTA_322_ASP\\quizzes\\Answers\\Quiz8\\Quiz8\\Quiz8.csproj",
       "packagesPath": "C:\\Users\\silco\\.nuget\\packages\\",
-      "outputPath": "C:\\Github\\repo\\ISTA_322_ASP\\quizzes\\Answers\\Quiz8\\Quiz8\\obj\\",
+      "outputPath": "F:\\REPO\\ISTA_322_ASP\\quizzes\\Answers\\Quiz8\\Quiz8\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
